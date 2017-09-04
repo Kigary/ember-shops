@@ -1,0 +1,86 @@
+.shops > .col-md-6, .products > .col-md-8 {
+  float: unset !important;
+  margin: auto;
+}
+
+h3, h2 {
+  text-align: center;
+  margin: 20px 0 !important;
+}
+
+.shop {
+  position: relative;
+}
+
+.shop > .actions {
+  position: absolute;
+  top: 9px;
+  right: 6px;
+}
+
+div.shop > .list-group-item {
+  height: 48px;
+}
+
+div.shop > a {
+  line-height: 26px;
+}
+
+.product-data {
+  height: 20px;
+  position: relative;
+}
+
+.actions {
+  position: absolute;
+  right: -154px;
+  top: -5px;
+}
+
+.actions button {
+  width: 60px;
+  margin: 0 2px;
+}
+
+.list-group-item.totalPrice {
+  height: 100px;
+}
+
+.addProduct {
+  height: 40px;
+}
+
+.new {
+  margin: 10px 0;
+}
+
+.addProduct button {
+  margin: 8px;
+}
+
+.list-header {
+  height: 40px;
+  font-weight: bold;
+  background-color: #9d9d9d;
+  color: white;
+}
+
+.quantity, .price {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: unset !important;
+}
+
+.totalPrice div {
+  text-align: right;
+}
+
+.products > .col-md-8 > button {
+  float: left;
+}
+
+.products, .shops {
+  margin-top: 50px;
+}

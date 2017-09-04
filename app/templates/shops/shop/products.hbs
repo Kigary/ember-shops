@@ -1,0 +1,32 @@
+<div class="products">
+  <div class="col-md-8">
+    <button {{action "backToShops"}} class="btn btn-default">Back</button>
+    <h2>{{model.name}}</h2>
+    <ul class="list-group">
+      <li class="list-group-item list-header">
+        <div class="col-md-4 name">NAME</div>
+        <div class="col-md-3 quantity">QUANTITY</div>
+        <div class="col-md-3 price">PRICE</div>
+      </li>
+      {{#each model.products as |product|}}
+        <li class="list-group-item">
+          {{product-data item=product itemId=product.id}}
+        </li>
+      {{/each}}
+      <li class="list-group-item totalPrice">
+        <div>Total Price</div>
+        <div><strong>$ {{total-price model.products}}</strong></div>
+      </li>
+      <div class="addProduct">
+        <form {{action "addProduct" on="submit"}}>
+          {{input type="text"   placeholder="Name"      class="col-md-4 new" value=name}}
+          {{input type="number" placeholder="Quantity"  class="col-md-3 new" value=quantity}}
+          {{input type="number" placeholder="Price"     class="col-md-3 new" value=price}}
+          <button type="submit" class="btn btn-primary btn-sm" disabled={{isAddButtonDisabled}}>
+            Add Product
+          </button>
+        </form>
+      </div>
+    </ul>
+  </div>
+</div>

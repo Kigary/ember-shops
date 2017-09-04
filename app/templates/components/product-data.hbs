@@ -1,0 +1,20 @@
+{{#if editMode}}
+  <div class="form-group">
+    {{input type="text"   class="col-md-4 name"     value=item.name}}
+    {{input type="number" class="col-md-3 quantity" value=item.quantity}}
+    {{input type="text"   class="col-md-3 price"    value=item.price}}
+  </div>
+{{else}}
+  <div class="col-md-4 name">{{item.name}}</div>
+  <div class="col-md-3 quantity">{{item.quantity}}</div>
+  <div class="col-md-3 price">$ {{item.price}}</div>
+{{/if}}
+<div class="actions">
+  {{#if editMode}}
+    <button class="btn btn-success btn-sm" {{action "updateProduct"}}>Save</button>
+    <button class="btn btn-warning btn-sm" {{action "cancelEdit"}}>Cancel</button>
+  {{else}}
+    <button class="btn btn-default btn-sm" {{action "editProduct"}}>Edit</button>
+    <button class="btn btn-danger btn-sm"  {{action "deleteProduct"}}>Delete</button>
+  {{/if}}
+</div>
