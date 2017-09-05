@@ -20,8 +20,8 @@
       <div class="addProduct">
         <form {{action "addProduct" on="submit"}}>
           {{input type="text"   placeholder="Name"      class="col-md-4 new" value=name}}
-          {{input type="number" placeholder="Quantity"  class="col-md-3 new" value=quantity}}
-          {{input type="number" placeholder="Price"     class="col-md-3 new" value=price}}
+          {{input type="number" placeholder="Quantity"  class="col-md-3 new" value=quantity min="0"}}
+          {{input type="number" placeholder="Price"     class="col-md-3 new" value=price    min="0"}}
           <button type="submit" class="btn btn-primary btn-sm" disabled={{isAddButtonDisabled}}>
             Add Product
           </button>
