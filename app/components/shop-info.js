@@ -3,14 +3,15 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'div',
   classNames: ['shop'],
+
   item: null,
   initialName: '',
+  actionName: 'deleteShop',
   editMode: false,
-  actionName: '',
 
   actions: {
     editShop: function() {
-      this.set('initialName', this.get('item').get('name'));
+      this.set('initialName', this.get('item.name'));
       this.set('editMode', true);
     },
     cancelEdit: function() {
@@ -20,11 +21,9 @@ export default Ember.Component.extend({
     },
     updateShop: function() {
       this.set('editMode', false);
-      this.set('actionName', 'updateShop');
-      this.sendAction('actionName');
+      this.get('item').save();
     },
     deleteShop: function(shopId) {
-      this.set('actionName', 'deleteShop');
       this.sendAction('actionName', shopId);
     }
   }

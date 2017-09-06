@@ -2,38 +2,36 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: 'div',
-  classNames: ['product-data'],
+  classNames: ['product'],
+
   item: null,
-  iName: '',
-  iQuantity: null,
-  iPrice: null,
-  itemId: '',
-  actionName: '',
+  name: '',
+  quantity: null,
+  price: null,
+  actionName: 'deleteProduct',
   editMode: false,
 
   actions: {
     editProduct: function() {
-      this.set('iName', this.get('item').get('name'));
-      this.set('iQuantity', this.get('item').get('quantity'));
-      this.set('iPrice', this.get('item').get('price'));
+      this.set('quantity', this.get('item.quantity'));
+      this.set('price', this.get('item.price'));
+      this.set('name', this.get('item.name'));
       this.set('editMode', true);
     },
     cancelEdit: function() {
-      this.get('item').set('name', this.get('iName'));
-      this.get('item').set('quantity', this.get('iQuantity'));
-      this.get('item').set('price', this.get('iPrice'));
+      this.get('item').set('quantity', this.get('quantity'));
+      this.get('item').set('price', this.get('price'));
+      this.get('item').set('name', this.get('name'));
       this.set('editMode', false);
-      this.set('iName', '');
-      this.set('iQuantity', '');
-      this.set('iPrice', '');
+      this.set('quantity', '');
+      this.set('price', '');
+      this.set('name', '');
     },
     updateProduct: function() {
-      this.set('editMode', false);
-      this.get('item').save();
+      this.get('item').save().then( _ => this.set('editMode', false));
     },
     deleteProduct: function() {
-      this.set('actionName', 'deleteProduct');
-      this.sendAction('actionName', this.itemId);
+      this.sendAction('actionName', this.get('item.id'));
     }
   }
 });

@@ -1,8 +1,13 @@
 {{#if editMode}}
   <div class="form-group">
-    {{input type="text"   class="col-md-4 name"     value=item.name}}
-    {{input type="number" class="col-md-3 quantity" value=item.quantity min="0"}}
-    {{input type="number" class="col-md-3 price"    value=item.price    min="0"}}
+    {{input type="text" class="col-md-4 name"
+            value=item.name maxlength="30"}}
+    {{input type="number" class="col-md-3 quantity"
+            value=item.quantity maxlength="10"
+            min="0" max="999999999"}}
+    {{input type="number" class="col-md-3 price"
+            value=item.price maxlength="10"
+            min="0" max="999999999"}}
   </div>
 {{else}}
   <div class="col-md-4 name">{{item.name}}</div>

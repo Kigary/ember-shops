@@ -10,7 +10,7 @@
       </li>
       {{#each model.products as |product|}}
         <li class="list-group-item">
-          {{product-data item=product itemId=product.id}}
+          {{product-data item=product}}
         </li>
       {{/each}}
       <li class="list-group-item totalPrice">
@@ -19,10 +19,17 @@
       </li>
       <div class="addProduct">
         <form {{action "addProduct" on="submit"}}>
-          {{input type="text"   placeholder="Name"      class="col-md-4 new" value=name}}
-          {{input type="number" placeholder="Quantity"  class="col-md-3 new" value=quantity min="0"}}
-          {{input type="number" placeholder="Price"     class="col-md-3 new" value=price    min="0"}}
-          <button type="submit" class="btn btn-primary btn-sm" disabled={{isAddButtonDisabled}}>
+          {{input type="text"   placeholder="Name"
+                  class="col-md-4 new" value=name
+                  maxlength="30"}}
+          {{input type="number" placeholder="Quantity"
+                  class="col-md-3 new" value=quantity
+                  min="0" max="999999999" maxlength="10"}}
+          {{input type="number" placeholder="Price"
+                  class="col-md-3 new" value=price
+                  min="0" max="999999999" maxlength="10"}}
+          <button type="submit" class="btn btn-primary btn-sm"
+                  disabled={{isAddButtonDisabled}}>
             Add Product
           </button>
         </form>

@@ -4,15 +4,15 @@
   {{/link-to}}
 {{else}}
   <span class="list-group-item">
-    {{input type="text" value=item.name}}
+    {{input type="text" value=item.name maxlength="40"}}
   </span>
 {{/unless}}
 <div class="actions">
   {{#unless editMode}}
-      <button class="btn btn-default btn-sm" {{action "editShop"}}>Edit</button>
-      <button class="btn btn-danger btn-sm"  {{action "deleteShop" item.id}}>Delete</button>
+    <button class="btn btn-default btn-sm" {{action "editShop"}}>Edit</button>
+    <button class="btn btn-danger btn-sm"  {{action "deleteShop" item.id}}>Delete</button>
   {{else}}
-      <button class="btn btn-warning btn-sm" {{action "cancelEdit"}}>Cancel</button>
-      <button class="btn btn-success btn-sm" {{action "updateShop"}}>Save</button>
+    <button class="btn btn-success btn-sm" {{action "updateShop"}}>Save</button>
+    <button class="btn btn-warning btn-sm" {{action "cancelEdit"}}>Cancel</button>
   {{/unless}}
 </div>
