@@ -1,4 +1,4 @@
-h3, h2 {
+h2 {
   text-align: center;
   margin: 20px 0 !important;
 }
@@ -30,13 +30,26 @@ h3, h2 {
   line-height: 26px;
 }
 
+.shop-name {
+  padding-left: 5px;
+}
+
+.new-shop {
+  width: 100%;
+  padding-left: 5px;
+}
+
 .shops > .col-md-6, .products > .col-md-8 {
   float: unset !important;
   margin: auto;
 }
 
-.products > .col-md-8 > button {
-  float: left;
+.products > .col-md-8 {
+  position: relative;
+}
+
+.products > .col-md-8 > button:first-of-type {
+  position: absolute;
 }
 
 .list-header {
@@ -47,34 +60,48 @@ h3, h2 {
 }
 
 .product {
-  height: 20px;
+  height: 40px;
   position: relative;
 }
 
 .product > .actions {
   position: absolute;
-  top: -5px;
+  top: 5px;
   right: -154px;
 }
 
-.list-group-item.totalPrice {
+.list-group-item.total-price {
   height: 100px;
+  padding: 20px 20px 0 0 !important;
+  text-align: right;
 }
 
 .new {
+  width: 100%;
+  padding-left: 5px;
   margin: 10px 0;
-}
-
-.addProduct button {
-  margin: 8px;
 }
 
 .quantity, .price {
   text-align: center;
 }
 
-.totalPrice div {
-  text-align: right;
+.products .list-group-item {
+  padding: unset;
+}
+
+.name, .quantity, .price {
+  padding: 10px;
+}
+
+.form-group .name, .form-group .quantity, .form-group .price {
+  border: none;
+  background-color: #ecebd5;
+}
+
+.form-group .quantity, .quantity {
+  border-left: 1px solid #c9c9c9;
+  border-right: 1px solid #c9c9c9;
 }
 
 .form-group {

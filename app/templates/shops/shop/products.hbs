@@ -4,36 +4,53 @@
     <h2>{{model.name}}</h2>
     <ul class="list-group">
       <li class="list-group-item list-header">
-        <div class="col-md-4 name">NAME</div>
+        <div class="col-md-5 name">NAME</div>
         <div class="col-md-3 quantity">QUANTITY</div>
-        <div class="col-md-3 price">PRICE</div>
+        <div class="col-md-4 price">PRICE</div>
       </li>
       {{#each model.products as |product|}}
         <li class="list-group-item">
           {{product-data item=product}}
         </li>
       {{/each}}
-      <li class="list-group-item totalPrice">
+      <li class="list-group-item total-price">
         <div>Total Price</div>
         <div><strong>$ {{totalPrice}}</strong></div>
       </li>
-      <div class="addProduct">
-        <form {{action "addProduct" on="submit"}}>
-          {{input type="text"   placeholder="Name"
-                  class="col-md-4 new" value=name
-                  maxlength="30"}}
-          {{input type="number" placeholder="Quantity"
-                  class="col-md-3 new" value=quantity
-                  min="0" max="999999999" maxlength="10"}}
-          {{input type="number" placeholder="Price"
-                  class="col-md-3 new" value=price
-                  min="0" max="999999999" maxlength="10"}}
-          <button type="submit" class="btn btn-primary btn-sm"
-                  disabled={{isAddButtonDisabled}}>
-            Add Product
-          </button>
-        </form>
-      </div>
     </ul>
+    <button type="button" class="btn btn-lg"
+            data-toggle="modal" data-target="#addProduct">
+      Add Product
+    </button>
+    <div id="addProduct" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">x</button>
+            <h4 class="modal-title">New Product</h4>
+          </div>
+          <div class="modal-body">
+            {{input type="text"   placeholder="Name"
+                    class="new" value=name
+                    maxlength="30"}}
+            {{input type="number" placeholder="Quantity"
+                    class="new" value=quantity
+                    min="0" max="999999999" maxlength="10"}}
+            {{input type="number" placeholder="Price"
+                    class="new" value=price
+                    min="0" max="999999999" maxlength="10"}}
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal"
+                    disabled={{isAddButtonDisabled}} {{action "addProduct"}}>
+              Add
+            </button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

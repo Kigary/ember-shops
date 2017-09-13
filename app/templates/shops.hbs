@@ -1,20 +1,37 @@
 {{#unless isShopSelected}}
   <div class="shops">
     <div class="col-md-6">
-      <h3>Shops</h3>
+      <h2>Shops</h2>
       <div class="list-group">
-        <div class="list-group-item">
-          <form {{action "createShop" on="submit"}}>
-            {{input type="text" placeholder="New Shop" value=name maxlength="40"}}
-            <button type="submit" class="btn btn-primary btn-sm"
-                    disabled={{isAddButtonDisabled}}>
-              Add
-            </button>
-          </form>
-        </div>
         {{#each model as |shop|}}
           {{shop-info item=shop}}
         {{/each}}
+      </div>
+      <button type="button" class="btn btn-lg"
+              data-toggle="modal" data-target="#addShop">
+        Add Shop
+      </button>
+    </div>
+  </div>
+  <div id="addShop" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">x</button>
+          <h4 class="modal-title">New Shop</h4>
+        </div>
+        <div class="modal-body">
+          {{input type="text" class="new-shop" placeholder="Name" value=name maxlength="40"}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"
+                  disabled={{isAddButtonDisabled}} {{action "createShop"}}>
+            Add
+          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   </div>

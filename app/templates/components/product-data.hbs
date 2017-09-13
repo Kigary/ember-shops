@@ -1,18 +1,18 @@
 {{#if editMode}}
   <div class="form-group">
-    {{input type="text" class="col-md-4 name"
+    {{input type="text" class="col-md-5 name"
             value=item.name maxlength="30"}}
     {{input type="number" class="col-md-3 quantity"
             value=item.quantity maxlength="10"
             min="0" max="999999999"}}
-    {{input type="number" class="col-md-3 price"
+    {{input type="number" class="col-md-4 price"
             value=item.price maxlength="10"
             min="0" max="999999999"}}
   </div>
 {{else}}
-  <div class="col-md-4 name">{{item.name}}</div>
+  <div class="col-md-5 name">{{item.name}}</div>
   <div class="col-md-3 quantity">{{item.quantity}}</div>
-  <div class="col-md-3 price">$ {{item.price}}</div>
+  <div class="col-md-4 price">$ {{item.price}}</div>
 {{/if}}
 <div class="actions">
   {{#if editMode}}
