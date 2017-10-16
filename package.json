@@ -44,6 +44,9 @@
   },
   "private": true,
   "dependencies": {
-    "bower-json": "^0.8.1"
+    "bower-json": "^0.8.1",
+    "ember-font-awesome": "^4.0.0-alpha.11",
+    "ember-light-table": "^1.10.0",
+    "ember-responsive": "^2.0.5"
   }
 }

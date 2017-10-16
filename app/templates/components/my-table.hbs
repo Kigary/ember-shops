@@ -1,0 +1,23 @@
+{{#light-table table height='40vh' as |t|}}
+    {{t.head
+            onColumnClick=(action 'onColumnClick')
+            iconSortable='fa fa-sort'
+            iconAscending='fa fa-sort-asc'
+            iconDescending='fa fa-sort-desc'
+            resizeOnDrag=true
+            fixed=true
+    }}
+    {{#t.body canSelect=false as |body|}}
+        {{#body.rows as |row|}}
+            {{#row class='row-hover'}}
+                <button>Delete this row</button>
+            {{/row}}
+        {{/body.rows}}
+    {{/t.body}}
+{{/light-table}}
+<button {{action 'addColumn'}}>
+    Add Column
+</button>
+<button {{action 'addRow'}}>
+    Add Row
+</button>

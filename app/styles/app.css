@@ -107,3 +107,31 @@ h2 {
 .form-group {
   margin-bottom: unset !important;
 }
+
+
+.uc-table th {
+  font-size: 12px;
+  font-weight: 200;
+  padding: 10px;
+}
+
+.ember-light-table .lt-row {
+  height: 50px;
+}
+
+.ember-light-table td {
+  padding: 0 10px;
+}
+
+.row-hover {
+  color: red;
+}
+
+.row-hover::before {
+  content: 'delete row';
+  display: none;
+}
+
+.row-hover:hover .row-hover::before {
+  display: block;
+}
