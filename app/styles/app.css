@@ -116,6 +116,7 @@ h2 {
 }
 
 .ember-light-table .lt-row {
+  position: relative;
   height: 50px;
 }
 
@@ -123,15 +124,15 @@ h2 {
   padding: 0 10px;
 }
 
-.row-hover {
-  color: red;
+
+
+.ember-light-table .edit-cell {
+  background-color: blue;
 }
 
-.row-hover::before {
-  content: 'delete row';
-  display: none;
-}
-
-.row-hover:hover .row-hover::before {
-  display: block;
+.ember-light-table table:hover::after {
+  content: 'after';
+  position: absolute;
+  top: 0;
+  right: 0;
 }

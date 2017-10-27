@@ -1,0 +1,7 @@
+{{#unless editMode}}
+    <div ondblclick={{action 'cellClicked'}}>
+        {{value}}
+    </div>
+{{else}}
+    {{input type='text' value=value}}
+{{/unless}}

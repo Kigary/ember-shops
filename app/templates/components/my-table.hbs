@@ -8,12 +8,14 @@
             fixed=true
     }}
     {{#t.body canSelect=false as |body|}}
-        {{#body.rows as |row|}}
-            {{#row class='row-hover'}}
-                <button>Delete this row</button>
-            {{/row}}
-        {{/body.rows}}
     {{/t.body}}
+    {{#t.foot fixed=true as |columns|}}
+        <tr>
+            <td colspan={{columns.length}}>
+                Tadadadam
+            </td>
+        </tr>
+    {{/t.foot}}
 {{/light-table}}
 <button {{action 'addColumn'}}>
     Add Column

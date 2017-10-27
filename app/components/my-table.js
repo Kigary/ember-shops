@@ -2,6 +2,7 @@ import Ember from 'ember';
 import Table from 'ember-light-table';
 
 export default Ember.Component.extend({
+    tableService: Ember.inject.service(),
     classNames: ['uc-table'],
     jsonData: [
         {
@@ -15,19 +16,27 @@ export default Ember.Component.extend({
         {
             "firstName": "Vahan",
             "lastName": "Arakelyan"
+        },
+        {
+            "firstName": "+"
         }
     ],
     model: [],
     columns: Ember.computed(function() {
+        let self = this;
         return [{
             label: 'First Name',
             valuePath: 'firstName',
             resizable: true,
-            width: '150px'
+            draggable: true,
+            width: '150px',
+            cellComponent: 'custom-cell',
+            classNames: ['yoohoo'],
         }, {
             label: 'Last Name',
             valuePath: 'lastName',
             resizable: true,
+            draggable: true,
             width: '150px'
         }]
     }).readOnly(),
@@ -52,6 +61,14 @@ export default Ember.Component.extend({
             sortColumn.set('sorted', true);
         }
         this.set('table', table);
+    },
+
+    _setup: Ember.on('didInsertElement', function(){
+        this.get('tableService').on('changeData', this, 'onChangeData');
+    }),
+
+    onChangeData() {
+        console.log('request sent');
     },
 
     fetchRecords() {
@@ -79,6 +96,7 @@ export default Ember.Component.extend({
             this.get('table').addRow(row);
         },
         onColumnClick(column) {
+            console.log(column);
             this.setProperties({
                 dir: column.ascending ? 'asc' : 'desc',
                 sort: column.get('valuePath'),
@@ -86,6 +104,6 @@ export default Ember.Component.extend({
             this.get('model').clear();
             this.fetchRecords();
             this.get('table').setRows(this.get('sortedModel'));
-        },
+        }
     }
 });
